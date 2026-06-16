@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dd38ph4ocakay"]
+
+[ext_resource type="Script" uid="uid://cwy4swp13wc8p" path="res://scripts/vfx/ghosteffect.gd" id="1_dq7ml"]
+
+[node name="ghosteffect" type="Sprite2D"]
+self_modulate = Color(1, 1, 1, 0.683)
+texture_filter = 1
+script = ExtResource("1_dq7ml")

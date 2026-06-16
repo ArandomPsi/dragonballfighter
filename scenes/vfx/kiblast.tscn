@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://b340ptqav30ef"]
+
+[ext_resource type="Texture2D" uid="uid://cepcx05elun7f" path="res://assets/sprites/effects/kiblasts.png" id="1_lb81n"]
+[ext_resource type="Script" uid="uid://ckmq8ie2bp42s" path="res://scripts/vfx/kiblast.gd" id="2_8o7eg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8o7eg"]
+atlas = ExtResource("1_lb81n")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifp75"]
+atlas = ExtResource("1_lb81n")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l4npw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8o7eg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifp75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8o7eg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifp75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8o7eg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifp75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8o7eg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifp75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8o7eg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifp75")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[node name="kiblast" type="AnimatedSprite2D"]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_l4npw")
+autoplay = "default"
+frame = 9
+frame_progress = 1.0
+offset = Vector2(15, 15)
+flip_h = true
+flip_v = true
+script = ExtResource("2_8o7eg")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c6q61ue7jc4g0"
+path="res://.godot/imported/Shirobon - Step It.mp3-625e5bbfc6465eeee6308e13209b0702.mp3str"
+
+[deps]
+
+source_file="res://assets/Shirobon - Step It.mp3"
+dest_files=["res://.godot/imported/Shirobon - Step It.mp3-625e5bbfc6465eeee6308e13209b0702.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

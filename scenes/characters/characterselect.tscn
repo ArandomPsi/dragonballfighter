@@ -1,0 +1,241 @@
+[gd_scene load_steps=13 format=3 uid="uid://eraq6kicaudb"]
+
+[ext_resource type="Script" uid="uid://bmfjp1idk532u" path="res://scripts/players/characterselector.gd" id="1_7dfek"]
+[ext_resource type="Shader" uid="uid://s35jenw4qxg0" path="res://shaders/grid.gdshader" id="1_74k12"]
+[ext_resource type="Script" uid="uid://bfmce1jplto2c" path="res://scripts/ui/characterselect.gd" id="1_fxdab"]
+[ext_resource type="Texture2D" uid="uid://knbk1lt82to5" path="res://assets/sprites/dbsfightersprites.png" id="1_uebix"]
+[ext_resource type="Script" uid="uid://wuur7rvlq28o" path="res://scripts/vfx/scrollinggrid.gd" id="2_y2y33"]
+[ext_resource type="FontFile" uid="uid://c66g3eh0icp7g" path="res://assets/FightKidCondensed-OaBp.ttf" id="3_nfo3p"]
+[ext_resource type="Shader" uid="uid://dljm0d6ynub10" path="res://shaders/squig.gdshader" id="7_04v8l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y2y33"]
+shader = ExtResource("1_74k12")
+shader_parameter/line_width = 3.0
+shader_parameter/cell_size = 32.0
+shader_parameter/line_color = Color(0.31, 0.31, 0.31, 1)
+shader_parameter/grid_offset = Vector2(0, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ijsxi"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rotdl"]
+noise = SubResource("FastNoiseLite_ijsxi")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eoof0"]
+shader = ExtResource("7_04v8l")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 1.0
+shader_parameter/fps = 6.0
+shader_parameter/noise = SubResource("NoiseTexture2D_rotdl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_amw44"]
+shader = ExtResource("7_04v8l")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 1.0
+shader_parameter/fps = 6.0
+shader_parameter/noise = SubResource("NoiseTexture2D_rotdl")
+
+[node name="characterselect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fxdab")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_y2y33")
+layout_mode = 0
+offset_right = 1192.0
+offset_bottom = 672.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("2_y2y33")
+
+[node name="select1" type="Node2D" parent="."]
+texture_filter = 1
+position = Vector2(176, 294)
+scale = Vector2(3, 3)
+script = ExtResource("1_7dfek")
+player = 2
+
+[node name="goku" type="Sprite2D" parent="select1"]
+texture = ExtResource("1_uebix")
+region_enabled = true
+region_rect = Rect2(17, 12, 32, 54)
+
+[node name="veggie" type="Sprite2D" parent="select1"]
+position = Vector2(0, 100)
+texture = ExtResource("1_uebix")
+region_enabled = true
+region_rect = Rect2(12, 142, 41, 54)
+
+[node name="rice" type="Sprite2D" parent="select1"]
+position = Vector2(0, 200)
+texture = ExtResource("1_uebix")
+region_enabled = true
+region_rect = Rect2(8, 268, 48, 56)
+
+[node name="freezer" type="Sprite2D" parent="select1"]
+position = Vector2(0, 300)
+texture = ExtResource("1_uebix")
+region_enabled = true
+region_rect = Rect2(11, 398, 39, 51)
+
+[node name="nig" type="Sprite2D" parent="select1"]
+position = Vector2(0, 400)
+texture = ExtResource("1_uebix")
+region_enabled = true
+region_rect = Rect2(11, 518, 46, 62)
+
+[node name="hit" type="Sprite2D" parent="select1"]
+position = Vector2(0, 500)
+texture = ExtResource("1_uebix")
+region_enabled = true
+region_rect = Rect2(467, 970, 35, 54)
+
+[node name="select2" type="Node2D" parent="."]
+texture_filter = 1
+position = Vector2(976, 294)
+scale = Vector2(-3, 3)
+script = ExtResource("1_7dfek")
+
+[node name="goku" type="Sprite2D" parent="select2"]
+texture = ExtResource("1_uebix")
+region_enabled = true
+region_rect = Rect2(17, 12, 32, 54)
+
+[node name="veggie" type="Sprite2D" parent="select2"]
+position = Vector2(0, 100)
+texture = ExtResource("1_uebix")
+region_enabled = true
+region_rect = Rect2(12, 142, 41, 54)
+
+[node name="rice" type="Sprite2D" parent="select2"]
+position = Vector2(0, 200)
+texture = ExtResource("1_uebix")
+region_enabled = true
+region_rect = Rect2(8, 268, 48, 56)
+
+[node name="freezer" type="Sprite2D" parent="select2"]
+position = Vector2(0, 300)
+texture = ExtResource("1_uebix")
+region_enabled = true
+region_rect = Rect2(11, 398, 39, 51)
+
+[node name="nig" type="Sprite2D" parent="select2"]
+position = Vector2(0, 400)
+texture = ExtResource("1_uebix")
+region_enabled = true
+region_rect = Rect2(11, 518, 46, 62)
+
+[node name="hit" type="Sprite2D" parent="select2"]
+position = Vector2(0, 500)
+texture = ExtResource("1_uebix")
+region_enabled = true
+region_rect = Rect2(467, 970, 35, 54)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.5
+offset_top = 228.0
+offset_right = 132.5
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_nfo3p")
+theme_override_font_sizes/font_size = 50
+text = "START"
+
+[node name="RichTextLabel" type="Label" parent="."]
+material = SubResource("ShaderMaterial_eoof0")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.0
+offset_top = -190.0
+offset_right = 134.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_nfo3p")
+theme_override_font_sizes/font_size = 25
+text = "controls:
+p1 - a, d
+
+p2 - left, right
+
+
+first to 20 hits
+
+"
+horizontal_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 860.0
+offset_top = 731.0
+offset_right = 1388.0
+offset_bottom = 931.0
+rotation = -0.785398
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -213.0
+offset_top = 145.0
+offset_right = 315.0
+offset_bottom = 345.0
+rotation = -0.785398
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+material = SubResource("ShaderMaterial_amw44")
+layout_mode = 0
+offset_left = 21.0
+offset_top = 42.0
+offset_right = 127.0
+offset_bottom = 74.0
+theme_override_fonts/font = ExtResource("3_nfo3p")
+theme_override_font_sizes/font_size = 25
+text = "player 1"
+
+[node name="Label2" type="Label" parent="."]
+material = SubResource("ShaderMaterial_amw44")
+layout_mode = 0
+offset_left = 1024.0
+offset_top = 580.0
+offset_right = 1130.0
+offset_bottom = 612.0
+theme_override_fonts/font = ExtResource("3_nfo3p")
+theme_override_font_sizes/font_size = 25
+text = "player 2"
+
+[node name="transition" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -731.0
+offset_top = -686.0
+offset_right = 1827.0
+offset_bottom = 1184.0
+pivot_offset = Vector2(1279, 935)
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

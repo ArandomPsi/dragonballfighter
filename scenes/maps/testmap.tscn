@@ -1,0 +1,233 @@
+[gd_scene load_steps=16 format=3 uid="uid://c8tawo54miw6l"]
+
+[ext_resource type="Texture2D" uid="uid://c8anfbjlv500t" path="res://icon.svg" id="1_j8icx"]
+[ext_resource type="Script" uid="uid://b7jkcjscuvxc0" path="res://scripts/ui/characteradded.gd" id="1_o7ia3"]
+[ext_resource type="Script" uid="uid://dgf2p1ldavi4l" path="res://scripts/global/cam.gd" id="3_mgnd1"]
+[ext_resource type="Script" uid="uid://jsuhn8ycb7x7" path="res://scripts/vfx/impactscreen.gd" id="5_c27os"]
+[ext_resource type="Texture2D" uid="uid://pptb3m7dl8n0" path="res://assets/sprites/platform.png" id="6_goqyv"]
+[ext_resource type="Shader" uid="uid://s35jenw4qxg0" path="res://shaders/grid.gdshader" id="7_o7ia3"]
+[ext_resource type="FontFile" uid="uid://c66g3eh0icp7g" path="res://assets/FightKidCondensed-OaBp.ttf" id="8_2nkbr"]
+[ext_resource type="Script" uid="uid://rwm7o4t0rati" path="res://scripts/vfx/grid.gd" id="8_n6foo"]
+[ext_resource type="Script" uid="uid://tv7b0jnwuc40" path="res://scripts/ui/hud.gd" id="8_ytmpc"]
+[ext_resource type="Script" uid="uid://bu3a0iuvs8ic1" path="res://scripts/ui/transition.gd" id="10_abnps"]
+[ext_resource type="AudioStream" uid="uid://c6q61ue7jc4g0" path="res://assets/Shirobon - Step It.mp3" id="10_ytmpc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcinl"]
+size = Vector2(8874, 130)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n6foo"]
+shader = ExtResource("7_o7ia3")
+shader_parameter/line_width = 1.0
+shader_parameter/cell_size = 64.0
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/grid_offset = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytmpc"]
+bg_color = Color(0, 0, 0, 0.705882)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytmpc"]
+size = Vector2(312, 954)
+
+[node name="testmap" type="Node2D"]
+script = ExtResource("1_o7ia3")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(540, 619)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_fcinl")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3991, 72)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_fcinl")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-4186, 72)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_fcinl")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+visible = false
+scale = Vector2(60.9219, 1)
+texture = ExtResource("1_j8icx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+limit_bottom = 625
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("3_mgnd1")
+
+[node name="impactscreen" type="ColorRect" parent="."]
+visible = false
+z_index = 3
+offset_left = -4777.0
+offset_top = -2294.0
+offset_right = 4817.0
+offset_bottom = 2334.0
+script = ExtResource("5_c27os")
+
+[node name="Platform" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(557, 575)
+scale = Vector2(96.816, 6)
+texture = ExtResource("6_goqyv")
+
+[node name="ColorRect" type="ColorRect" parent="." node_paths=PackedStringArray("camera")]
+z_index = -5
+material = SubResource("ShaderMaterial_n6foo")
+offset_left = -4538.0
+offset_top = -826.0
+offset_right = 6027.0
+offset_bottom = 866.0
+script = ExtResource("8_n6foo")
+camera = NodePath("../Camera2D")
+
+[node name="1spawn" type="Marker2D" parent="."]
+position = Vector2(86, 488)
+
+[node name="2spawn" type="Marker2D" parent="."]
+position = Vector2(695, 488)
+
+[node name="hud" type="CanvasLayer" parent="."]
+script = ExtResource("8_ytmpc")
+
+[node name="p1" type="Label" parent="hud"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -74.0
+offset_top = 17.0
+offset_right = -34.0
+offset_bottom = 40.0
+grow_horizontal = 2
+pivot_offset = Vector2(20, 19)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("8_2nkbr")
+theme_override_font_sizes/font_size = 30
+text = "30"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="hud"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 17.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("8_2nkbr")
+theme_override_font_sizes/font_size = 30
+text = "-"
+horizontal_alignment = 1
+
+[node name="p2" type="Label" parent="hud"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 34.0
+offset_top = 17.0
+offset_right = 74.0
+offset_bottom = 40.0
+grow_horizontal = 2
+pivot_offset = Vector2(20, 19)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("8_2nkbr")
+theme_override_font_sizes/font_size = 30
+text = "30"
+horizontal_alignment = 1
+
+[node name="countdown" type="Label" parent="hud"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -62.0
+offset_right = 79.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(75, 62)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("8_2nkbr")
+theme_override_font_sizes/font_size = 100
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mogged" type="Panel" parent="hud"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -581.0
+offset_top = -50.0
+offset_right = 622.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(601.5, 50)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ytmpc")
+
+[node name="Label" type="Label" parent="hud/mogged"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.5
+offset_top = -42.0
+offset_right = 174.5
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.68, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_2nkbr")
+theme_override_font_sizes/font_size = 70
+text = "Mogged"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="transition" type="ColorRect" parent="hud"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -129.0
+offset_top = -125.0
+offset_right = 129.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(705, 449)
+color = Color(0, 0, 0, 1)
+script = ExtResource("10_abnps")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_ytmpc")
+volume_db = -8.0
+autoplay = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(400, 337)
+shape = SubResource("RectangleShape2D_ytmpc")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+z_index = -10
+offset_left = -5501.0
+offset_top = -2325.0
+offset_right = 5541.0
+offset_bottom = 858.0

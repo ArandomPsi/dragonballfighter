@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctfict1mfb8b3"]
+
+[ext_resource type="Script" uid="uid://bxic78d6n2qou" path="res://scripts/global/attackbox.gd" id="1_j2ncj"]
+
+[node name="attackbox" type="Area2D"]
+script = ExtResource("1_j2ncj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

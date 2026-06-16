@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgh3vdt6w87cf"]
+
+[ext_resource type="Script" uid="uid://cou48pvbn4d4k" path="res://scripts/players/pusher.gd" id="1_nk5p5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kqx8c"]
+radius = 17.0
+height = 76.0
+
+[node name="pusher" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_nk5p5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_kqx8c")
