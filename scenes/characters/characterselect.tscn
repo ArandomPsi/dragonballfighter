@@ -102,6 +102,12 @@ texture = ExtResource("1_uebix")
 region_enabled = true
 region_rect = Rect2(467, 970, 35, 54)
 
+[node name="broly" type="Sprite2D" parent="select1"]
+position = Vector2(0, 600)
+texture = ExtResource("1_uebix")
+region_enabled = true
+region_rect = Rect2(29, 1259, 60, 90)
+
 [node name="select2" type="Node2D" parent="."]
 texture_filter = 1
 position = Vector2(976, 294)
@@ -142,6 +148,12 @@ position = Vector2(0, 500)
 texture = ExtResource("1_uebix")
 region_enabled = true
 region_rect = Rect2(467, 970, 35, 54)
+
+[node name="broly" type="Sprite2D" parent="select2"]
+position = Vector2(0, 600)
+texture = ExtResource("1_uebix")
+region_enabled = true
+region_rect = Rect2(29, 1259, 60, 90)
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1

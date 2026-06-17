@@ -217,7 +217,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hy16l"]
-radius = 32.0878
+radius = 21.0424
 height = 139.959
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ukvfs"]
@@ -729,7 +729,8 @@ kb = 200.0
 metadata/_custom_type_script = "uid://bxic78d6n2qou"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="flip/attackboxes/attackbox1"]
-position = Vector2(191, 3)
+visible = false
+position = Vector2(191, -4)
 rotation = -1.54647
 shape = SubResource("CapsuleShape2D_hy16l")
 disabled = true
@@ -756,6 +757,7 @@ kb = 200.0
 metadata/_custom_type_script = "uid://bxic78d6n2qou"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="flip/attackboxes/attackbox3"]
+visible = false
 position = Vector2(33, 1)
 rotation = -1.68129
 shape = SubResource("CapsuleShape2D_ikax6")
@@ -770,6 +772,7 @@ kb = 500.0
 metadata/_custom_type_script = "uid://bxic78d6n2qou"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="flip/attackboxes/attackbox4"]
+visible = false
 position = Vector2(4, 11)
 rotation = -4.18878
 shape = SubResource("CapsuleShape2D_ihb3c")

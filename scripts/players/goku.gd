@@ -15,6 +15,7 @@ class_name basecontroller
 
 @export var supermovement : bool = false
 var supermovementrailthing : int = 0
+@export var heavyweight : bool = false
 
 
 var hp : float = 100
@@ -58,11 +59,15 @@ func _process(delta: float) -> void:
 	supermovementrailthing -= 1
 	attacking = $animations.current_animation.contains("attack")
 	
-	if stun > 1:
-		if is_on_floor():
+	if not justisonfloor == is_on_floor() and heavyweight:
+		global.camshake = 5
+	
+	if stun > 1 and is_on_floor():
+		if not justisonfloor == is_on_floor():
 			iframes = stuntime * 0.2
-			$CollisionShape2D.scale.y = 0.25
-			$CollisionShape2D.position.y = 20
+			position.y += 20
+		$CollisionShape2D.scale.y = 0.25
+		$CollisionShape2D.position.y = 20
 	else:
 		$CollisionShape2D.scale.y = 1
 		$CollisionShape2D.position.y = 0
@@ -238,6 +243,12 @@ func smallhop():
 func smallerhop():
 	velocity.y = -400
 
+func superhop():
+	velocity.y = -1200
+
+func superslam():
+	velocity.y = 2000
+
 func zoomies():
 	var tween = create_tween()
 	tween.tween_property(self,"position",targetpos - Vector2(20 * $flip.scale.x,0),0.3).set_trans(Tween.TRANS_CUBIC)
@@ -300,6 +311,7 @@ func createtrail():
 	b.scale = $flip/sprite.scale
 	b.scale.x *= $flip.scale.x
 	
+
 
 
 func bounce():

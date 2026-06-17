@@ -1,6 +1,6 @@
 extends Control
 
-var characterlist : PackedStringArray = ["res://scenes/characters/goku.tscn", "res://scenes/characters/vegeta.tscn", "res://scenes/characters/gohan.tscn", "res://scenes/characters/frieza.tscn", "res://scenes/characters/gokublack.tscn", "res://scenes/characters/hit.tscn"]
+var characterlist : PackedStringArray = ["res://scenes/characters/goku.tscn", "res://scenes/characters/vegeta.tscn", "res://scenes/characters/gohan.tscn", "res://scenes/characters/frieza.tscn", "res://scenes/characters/gokublack.tscn", "res://scenes/characters/hit.tscn","res://scenes/characters/broly.tscn"]
 
 func _on_button_pressed() -> void:
 	global.player2 = characterlist[$select1.currentselection]
