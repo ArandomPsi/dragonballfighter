@@ -39,6 +39,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fxdab")
@@ -108,6 +110,24 @@ texture = ExtResource("1_uebix")
 region_enabled = true
 region_rect = Rect2(29, 1259, 60, 90)
 
+[node name="cat" type="Sprite2D" parent="select1"]
+position = Vector2(0, 700)
+texture = ExtResource("1_uebix")
+region_enabled = true
+region_rect = Rect2(511, 1795, 65, 59)
+
+[node name="cakedaf" type="Sprite2D" parent="select1"]
+position = Vector2(0, 800)
+texture = ExtResource("1_uebix")
+region_enabled = true
+region_rect = Rect2(5, 1989, 53, 64)
+
+[node name="mui" type="Sprite2D" parent="select1"]
+position = Vector2(0, 900)
+texture = ExtResource("1_uebix")
+region_enabled = true
+region_rect = Rect2(395, 2242, 41, 62)
+
 [node name="select2" type="Node2D" parent="."]
 texture_filter = 1
 position = Vector2(976, 294)
@@ -154,6 +174,24 @@ position = Vector2(0, 600)
 texture = ExtResource("1_uebix")
 region_enabled = true
 region_rect = Rect2(29, 1259, 60, 90)
+
+[node name="cat" type="Sprite2D" parent="select2"]
+position = Vector2(0, 700)
+texture = ExtResource("1_uebix")
+region_enabled = true
+region_rect = Rect2(511, 1795, 65, 59)
+
+[node name="cakedaf" type="Sprite2D" parent="select2"]
+position = Vector2(0, 800)
+texture = ExtResource("1_uebix")
+region_enabled = true
+region_rect = Rect2(5, 1989, 53, 64)
+
+[node name="mui" type="Sprite2D" parent="select2"]
+position = Vector2(0, 900)
+texture = ExtResource("1_uebix")
+region_enabled = true
+region_rect = Rect2(395, 2242, 41, 62)
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -225,6 +263,7 @@ offset_left = 21.0
 offset_top = 42.0
 offset_right = 127.0
 offset_bottom = 74.0
+theme_override_colors/font_color = Color(1, 0, 0.45, 1)
 theme_override_fonts/font = ExtResource("3_nfo3p")
 theme_override_font_sizes/font_size = 25
 text = "player 1"
@@ -233,9 +272,10 @@ text = "player 1"
 material = SubResource("ShaderMaterial_amw44")
 layout_mode = 0
 offset_left = 1024.0
-offset_top = 580.0
+offset_top = 581.0
 offset_right = 1130.0
-offset_bottom = 612.0
+offset_bottom = 613.0
+theme_override_colors/font_color = Color(0, 0.866667, 1, 1)
 theme_override_fonts/font = ExtResource("3_nfo3p")
 theme_override_font_sizes/font_size = 25
 text = "player 2"

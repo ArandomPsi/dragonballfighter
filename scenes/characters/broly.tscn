@@ -1,12 +1,21 @@
-[gd_scene load_steps=40 format=3 uid="uid://b6tgptitdr1tu"]
+[gd_scene load_steps=43 format=3 uid="uid://b6tgptitdr1tu"]
 
 [ext_resource type="Script" uid="uid://cfnpks18lyic5" path="res://scripts/players/goku.gd" id="1_gn4h3"]
 [ext_resource type="Texture2D" uid="uid://knbk1lt82to5" path="res://assets/sprites/dbsfightersprites.png" id="2_7hiwu"]
+[ext_resource type="Shader" uid="uid://cmc5brphj4uqg" path="res://shaders/chickens.gdshader" id="2_lfqkx"]
 [ext_resource type="Script" uid="uid://bxic78d6n2qou" path="res://scripts/global/attackbox.gd" id="3_lfqkx"]
 [ext_resource type="Script" uid="uid://ds7lmbt60ysis" path="res://scripts/collisions/grabber.gd" id="4_7hiwu"]
+[ext_resource type="Script" uid="uid://6qegr400443o" path="res://scripts/vfx/sprite.gd" id="4_fp5rv"]
 [ext_resource type="PackedScene" uid="uid://bgh3vdt6w87cf" path="res://scenes/characters/pusher.tscn" id="4_x7nd8"]
 [ext_resource type="AudioStream" uid="uid://b05es3jty4shr" path="res://assets/dragondash.ogg" id="5_fp5rv"]
 [ext_resource type="AudioStream" uid="uid://dondimjfejhfi" path="res://assets/transmission.ogg" id="6_my301"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x7nd8"]
+shader = ExtResource("2_lfqkx")
+shader_parameter/target_color = Color(0, 0, 0, 1)
+shader_parameter/replacement_color = Color(1, 0, 0, 1)
+shader_parameter/tolerance = 0.01
+shader_parameter/transparency = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fp5rv"]
 atlas = ExtResource("2_7hiwu")
@@ -184,7 +193,7 @@ radius = 53.0847
 height = 206.584
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lfqkx"]
-radius = 32.9231
+radius = 32.923
 height = 65.8461
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fp5rv"]
@@ -192,8 +201,8 @@ radius = 71.3417
 height = 292.137
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x7nd8"]
-radius = 98.6146
-height = 244.846
+radius = 75.419
+height = 312.468
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lfqkx"]
 size = Vector2(58, 80)
@@ -662,11 +671,13 @@ heavyweight = true
 
 [node name="sprite" type="AnimatedSprite2D" parent="flip"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_x7nd8")
 position = Vector2(0, -23)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_7hiwu")
 animation = &"hurt"
 offset = Vector2(0, -30)
+script = ExtResource("4_fp5rv")
 
 [node name="attackboxes" type="Node2D" parent="flip"]
 
@@ -731,8 +742,8 @@ collision_mask = 0
 script = ExtResource("4_7hiwu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="flip/attackboxes/grabber"]
-position = Vector2(6, 19)
-rotation = -0.399588
+position = Vector2(53, -1)
+rotation = -1.87012
 shape = SubResource("CapsuleShape2D_x7nd8")
 disabled = true
 

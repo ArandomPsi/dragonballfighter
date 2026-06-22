@@ -1,10 +1,19 @@
-[gd_scene load_steps=40 format=3 uid="uid://bvvivdwe5m7dm"]
+[gd_scene load_steps=43 format=3 uid="uid://bvvivdwe5m7dm"]
 
 [ext_resource type="Script" uid="uid://cfnpks18lyic5" path="res://scripts/players/goku.gd" id="1_m4npp"]
+[ext_resource type="Shader" uid="uid://cmc5brphj4uqg" path="res://shaders/chickens.gdshader" id="2_atpvt"]
 [ext_resource type="Texture2D" uid="uid://knbk1lt82to5" path="res://assets/sprites/dbsfightersprites.png" id="2_l751a"]
 [ext_resource type="Script" uid="uid://bxic78d6n2qou" path="res://scripts/global/attackbox.gd" id="3_3ixoh"]
 [ext_resource type="PackedScene" uid="uid://bgh3vdt6w87cf" path="res://scenes/characters/pusher.tscn" id="4_atpvt"]
+[ext_resource type="Script" uid="uid://6qegr400443o" path="res://scripts/vfx/sprite.gd" id="4_mdogc"]
 [ext_resource type="AudioStream" uid="uid://d4h722pbvp5vj" path="res://assets/ENDSKIP.wav" id="5_l751a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s542q"]
+shader = ExtResource("2_atpvt")
+shader_parameter/target_color = Color(0, 0, 0, 1)
+shader_parameter/replacement_color = Color(1, 0, 0, 1)
+shader_parameter/tolerance = 0.01
+shader_parameter/transparency = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s542q"]
 atlas = ExtResource("2_l751a")
@@ -385,7 +394,7 @@ tracks/3/keys = {
 [sub_resource type="Animation" id="Animation_ihb3c"]
 resource_name = "attack3"
 length = 0.5
-step = 0.05
+step = 0.01
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -393,14 +402,17 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.02, 0.05),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
-"args": [],
-"method": &"instanttransmitioneffect"
+"args": [20],
+"method": &"setiframes"
+}, {
+"args": [300.0],
+"method": &"setvelx"
 }, {
 "args": [],
-"method": &"timeskiptransmision"
+"method": &"instanttransmitioneffect"
 }]
 }
 tracks/1/type = "value"
@@ -422,7 +434,7 @@ tracks/2/path = NodePath("flip/sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.35),
+"times": PackedFloat32Array(0, 0.2, 0.25),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 1, 2]
@@ -434,7 +446,7 @@ tracks/3/path = NodePath("flip/attackboxes/attackbox3/CollisionShape2D:disabled"
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.35),
+"times": PackedFloat32Array(0, 0.2, 0.25),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -446,7 +458,7 @@ tracks/4/path = NodePath("timeskip:playing")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.15),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -682,16 +694,17 @@ collision_layer = 0
 script = ExtResource("1_m4npp")
 speed = 76
 stuntime = 46
-supermovement = true
 
 [node name="flip" type="Node2D" parent="."]
 
 [node name="sprite" type="AnimatedSprite2D" parent="flip"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_s542q")
 position = Vector2(0, -23)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_m4npp")
 animation = &"hurt"
+script = ExtResource("4_mdogc")
 
 [node name="attackboxes" type="Node2D" parent="flip"]
 

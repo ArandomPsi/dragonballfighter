@@ -3,7 +3,7 @@ extends Node2D
 
 var currentselection : int = 0
 
-@export var totalchildren : int = 6
+@export var totalchildren : int = 9
 
 
 func _process(delta: float) -> void:

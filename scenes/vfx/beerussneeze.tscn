@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://ohhphyr0au65"]
+
+[ext_resource type="Texture2D" uid="uid://knbk1lt82to5" path="res://assets/sprites/dbsfightersprites.png" id="1_6ym31"]
+[ext_resource type="Script" uid="uid://bm6rfqy0csv2b" path="res://scripts/vfx/beerussneeze.gd" id="2_s7vxv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7vxv"]
+atlas = ExtResource("1_6ym31")
+region = Rect2(0, 1856, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eba1x"]
+atlas = ExtResource("1_6ym31")
+region = Rect2(64, 1856, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcmhw"]
+atlas = ExtResource("1_6ym31")
+region = Rect2(128, 1856, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7f732"]
+atlas = ExtResource("1_6ym31")
+region = Rect2(192, 1856, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsp3y"]
+atlas = ExtResource("1_6ym31")
+region = Rect2(256, 1856, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8fg6h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7vxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eba1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcmhw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7f732")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsp3y")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="beerussneeze" type="AnimatedSprite2D"]
+texture_filter = 1
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_8fg6h")
+autoplay = "default"
+script = ExtResource("2_s7vxv")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

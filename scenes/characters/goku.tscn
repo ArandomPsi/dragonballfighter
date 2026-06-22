@@ -1,11 +1,20 @@
-[gd_scene load_steps=44 format=3 uid="uid://q7xb7n8co4wi"]
+[gd_scene load_steps=47 format=3 uid="uid://q7xb7n8co4wi"]
 
 [ext_resource type="Script" uid="uid://cfnpks18lyic5" path="res://scripts/players/goku.gd" id="1_8t373"]
 [ext_resource type="Texture2D" uid="uid://knbk1lt82to5" path="res://assets/sprites/dbsfightersprites.png" id="1_30gbc"]
+[ext_resource type="Shader" uid="uid://cmc5brphj4uqg" path="res://shaders/chickens.gdshader" id="2_ihb3c"]
+[ext_resource type="Script" uid="uid://6qegr400443o" path="res://scripts/vfx/sprite.gd" id="4_2nuab"]
 [ext_resource type="Script" uid="uid://bxic78d6n2qou" path="res://scripts/global/attackbox.gd" id="4_hy16l"]
 [ext_resource type="PackedScene" uid="uid://bgh3vdt6w87cf" path="res://scenes/characters/pusher.tscn" id="4_ukvfs"]
 [ext_resource type="AudioStream" uid="uid://b05es3jty4shr" path="res://assets/dragondash.ogg" id="5_ikax6"]
 [ext_resource type="AudioStream" uid="uid://dondimjfejhfi" path="res://assets/transmission.ogg" id="6_ihb3c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2nuab"]
+shader = ExtResource("2_ihb3c")
+shader_parameter/target_color = Color(0, 0, 0, 1)
+shader_parameter/replacement_color = Color(1, 0, 0, 1)
+shader_parameter/tolerance = 0.01
+shader_parameter/transparency = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g4y6r"]
 atlas = ExtResource("1_30gbc")
@@ -713,10 +722,12 @@ stuntime = 24
 
 [node name="sprite" type="AnimatedSprite2D" parent="flip"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_2nuab")
 position = Vector2(0, -23)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_g4y6r")
 animation = &"hurt"
+script = ExtResource("4_2nuab")
 
 [node name="attackboxes" type="Node2D" parent="flip"]
 

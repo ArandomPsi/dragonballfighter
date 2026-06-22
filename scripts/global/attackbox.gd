@@ -8,7 +8,7 @@ class_name attackbox
 func _on_body_entered(body: Node2D) -> void:
 	body.damage(damage,kb,global_position)
 	
-	if body.iframes < 1 and body.counterframes < 1:
+	if body.iframes < 1 and body.counterframes < 1 and body.dodgeframes < 1:
 		impact(body)
 		hitstop()
 		createblow(body)

@@ -1,9 +1,18 @@
-[gd_scene load_steps=38 format=3 uid="uid://uni5fdjbnlrd"]
+[gd_scene load_steps=41 format=3 uid="uid://uni5fdjbnlrd"]
 
 [ext_resource type="Script" uid="uid://cfnpks18lyic5" path="res://scripts/players/goku.gd" id="1_armkr"]
 [ext_resource type="Texture2D" uid="uid://knbk1lt82to5" path="res://assets/sprites/dbsfightersprites.png" id="2_8lmtx"]
+[ext_resource type="Shader" uid="uid://cmc5brphj4uqg" path="res://shaders/chickens.gdshader" id="2_wj721"]
 [ext_resource type="Script" uid="uid://bxic78d6n2qou" path="res://scripts/global/attackbox.gd" id="3_wj721"]
 [ext_resource type="PackedScene" uid="uid://bgh3vdt6w87cf" path="res://scenes/characters/pusher.tscn" id="4_kicr3"]
+[ext_resource type="Script" uid="uid://6qegr400443o" path="res://scripts/vfx/sprite.gd" id="4_wj721"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kicr3"]
+shader = ExtResource("2_wj721")
+shader_parameter/target_color = Color(0, 0, 0, 1)
+shader_parameter/replacement_color = Color(1, 0, 0, 1)
+shader_parameter/tolerance = 0.01
+shader_parameter/transparency = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_armkr"]
 atlas = ExtResource("2_8lmtx")
@@ -649,10 +658,12 @@ speed = 70
 
 [node name="sprite" type="AnimatedSprite2D" parent="flip"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_kicr3")
 position = Vector2(0, -23)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_armkr")
 animation = &"hurt"
+script = ExtResource("4_wj721")
 
 [node name="blast" type="Sprite2D" parent="flip/sprite"]
 visible = false

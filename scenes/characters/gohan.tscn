@@ -1,9 +1,18 @@
-[gd_scene load_steps=38 format=3 uid="uid://bma8pahbfmhrg"]
+[gd_scene load_steps=41 format=3 uid="uid://bma8pahbfmhrg"]
 
 [ext_resource type="Script" uid="uid://cfnpks18lyic5" path="res://scripts/players/goku.gd" id="1_bg1vh"]
 [ext_resource type="Texture2D" uid="uid://knbk1lt82to5" path="res://assets/sprites/dbsfightersprites.png" id="2_fv2f8"]
+[ext_resource type="Shader" uid="uid://cmc5brphj4uqg" path="res://shaders/chickens.gdshader" id="2_vi8hn"]
 [ext_resource type="Script" uid="uid://bxic78d6n2qou" path="res://scripts/global/attackbox.gd" id="3_vi8hn"]
 [ext_resource type="PackedScene" uid="uid://bgh3vdt6w87cf" path="res://scenes/characters/pusher.tscn" id="4_fv2f8"]
+[ext_resource type="Script" uid="uid://6qegr400443o" path="res://scripts/vfx/sprite.gd" id="4_m1eg1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m1eg1"]
+shader = ExtResource("2_vi8hn")
+shader_parameter/target_color = Color(0, 0, 0, 1)
+shader_parameter/replacement_color = Color(1, 0, 0, 1)
+shader_parameter/tolerance = 0.01
+shader_parameter/transparency = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bg1vh"]
 atlas = ExtResource("2_fv2f8")
@@ -270,7 +279,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_ukvfs"]
 resource_name = "attack1"
-length = 0.7
+length = 0.6
 step = 0.02
 tracks/0/type = "method"
 tracks/0/imported = false
@@ -615,10 +624,12 @@ stuntime = 45
 
 [node name="sprite" type="AnimatedSprite2D" parent="flip"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_m1eg1")
 position = Vector2(0, -23)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_bg1vh")
 animation = &"hurt"
+script = ExtResource("4_m1eg1")
 
 [node name="attackboxes" type="Node2D" parent="flip"]
 
@@ -628,7 +639,7 @@ collision_layer = 0
 collision_mask = 0
 script = ExtResource("3_vi8hn")
 damage = 2.0
-kb = 400.0
+kb = 800.0
 metadata/_custom_type_script = "uid://bxic78d6n2qou"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="flip/attackboxes/attackbox1"]
