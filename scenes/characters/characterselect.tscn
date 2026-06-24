@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://eraq6kicaudb"]
+[gd_scene load_steps=15 format=3 uid="uid://eraq6kicaudb"]
 
 [ext_resource type="Script" uid="uid://bmfjp1idk532u" path="res://scripts/players/characterselector.gd" id="1_7dfek"]
 [ext_resource type="Shader" uid="uid://s35jenw4qxg0" path="res://shaders/grid.gdshader" id="1_74k12"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://wuur7rvlq28o" path="res://scripts/vfx/scrollinggrid.gd" id="2_y2y33"]
 [ext_resource type="FontFile" uid="uid://c66g3eh0icp7g" path="res://assets/FightKidCondensed-OaBp.ttf" id="3_nfo3p"]
 [ext_resource type="Shader" uid="uid://dljm0d6ynub10" path="res://shaders/squig.gdshader" id="7_04v8l"]
+[ext_resource type="Texture2D" uid="uid://veodciq7tu5h" path="res://assets/sprites/stages.png" id="8_ijsxi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y2y33"]
 shader = ExtResource("1_74k12")
@@ -33,6 +34,8 @@ shader_parameter/scale = Vector2(1, 1)
 shader_parameter/strength = 1.0
 shader_parameter/fps = 6.0
 shader_parameter/noise = SubResource("NoiseTexture2D_rotdl")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rotdl"]
 
 [node name="characterselect" type="Control"]
 layout_mode = 3
@@ -220,22 +223,27 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -134.0
-offset_top = -190.0
+offset_top = -301.0
 offset_right = 134.0
-offset_bottom = 190.0
+offset_bottom = 221.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_nfo3p")
 theme_override_font_sizes/font_size = 25
-text = "controls:
-p1 - a, d
-
-p2 - left, right
+text = "AD - move/attack
+Left/right - move/attack
 
 
-first to 20 hits
 
-"
+
+
+
+
+
+
+
+
+First to 20 hits"
 horizontal_alignment = 1
 
 [node name="ColorRect3" type="ColorRect" parent="."]
@@ -279,6 +287,70 @@ theme_override_colors/font_color = Color(0, 0.866667, 1, 1)
 theme_override_fonts/font = ExtResource("3_nfo3p")
 theme_override_font_sizes/font_size = 25
 text = "player 2"
+
+[node name="Control" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -255.0
+offset_right = 136.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rotdl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+texture_filter = 1
+position = Vector2(135, 61.6)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("8_ijsxi")
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 64)
+
+[node name="Button" type="Button" parent="Control/Sprite2D"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -64.0
+offset_top = -31.0
+offset_right = 62.0
+offset_bottom = 30.0
+focus_mode = 0
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control"]
+texture_filter = 1
+position = Vector2(135, 207.6)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("8_ijsxi")
+region_enabled = true
+region_rect = Rect2(0, 64, 128, 64)
+
+[node name="Button2" type="Button" parent="Control/Sprite2D2"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -64.0
+offset_top = -30.3333
+offset_right = 62.0
+offset_bottom = 30.6667
+focus_mode = 0
+
+[node name="Sprite2D3" type="Sprite2D" parent="Control"]
+texture_filter = 1
+position = Vector2(135, 358.6)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("8_ijsxi")
+region_enabled = true
+region_rect = Rect2(0, 128, 128, 64)
+
+[node name="Button3" type="Button" parent="Control/Sprite2D3"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -64.0
+offset_top = -29.7778
+offset_right = 62.0
+offset_bottom = 31.2222
+focus_mode = 0
 
 [node name="transition" type="ColorRect" parent="."]
 visible = false
