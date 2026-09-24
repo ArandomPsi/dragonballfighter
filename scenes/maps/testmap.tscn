@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c8tawo54miw6l"]
+[gd_scene load_steps=17 format=3 uid="uid://c8tawo54miw6l"]
 
 [ext_resource type="Texture2D" uid="uid://c8anfbjlv500t" path="res://icon.svg" id="1_j8icx"]
 [ext_resource type="Script" uid="uid://b7jkcjscuvxc0" path="res://scripts/ui/characteradded.gd" id="1_o7ia3"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://rwm7o4t0rati" path="res://scripts/vfx/grid.gd" id="8_n6foo"]
 [ext_resource type="Script" uid="uid://tv7b0jnwuc40" path="res://scripts/ui/hud.gd" id="8_ytmpc"]
 [ext_resource type="Script" uid="uid://bu3a0iuvs8ic1" path="res://scripts/ui/transition.gd" id="10_abnps"]
+[ext_resource type="FontFile" uid="uid://dkm1gmq3buikp" path="res://assets/QueensidesMedium-x30zV.ttf" id="10_wgv6b"]
 [ext_resource type="AudioStream" uid="uid://c6q61ue7jc4g0" path="res://assets/Shirobon - Step It.mp3" id="10_ytmpc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fcinl"]
@@ -194,7 +195,7 @@ offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.68, 0, 0, 1)
-theme_override_fonts/font = ExtResource("8_2nkbr")
+theme_override_fonts/font = ExtResource("10_wgv6b")
 theme_override_font_sizes/font_size = 70
 text = "Mogged"
 horizontal_alignment = 1

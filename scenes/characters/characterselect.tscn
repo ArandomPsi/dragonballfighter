@@ -71,6 +71,7 @@ position = Vector2(176, 294)
 scale = Vector2(3, 3)
 script = ExtResource("1_7dfek")
 player = 2
+totalchildren = 10
 
 [node name="goku" type="Sprite2D" parent="select1"]
 texture = ExtResource("1_uebix")
@@ -131,11 +132,18 @@ texture = ExtResource("1_uebix")
 region_enabled = true
 region_rect = Rect2(395, 2242, 41, 62)
 
+[node name="trunks" type="Sprite2D" parent="select1"]
+position = Vector2(0, 1000)
+texture = ExtResource("1_uebix")
+region_enabled = true
+region_rect = Rect2(394, 2565, 43, 62)
+
 [node name="select2" type="Node2D" parent="."]
 texture_filter = 1
 position = Vector2(976, 294)
 scale = Vector2(-3, 3)
 script = ExtResource("1_7dfek")
+totalchildren = 10
 
 [node name="goku" type="Sprite2D" parent="select2"]
 texture = ExtResource("1_uebix")
@@ -195,6 +203,16 @@ position = Vector2(0, 900)
 texture = ExtResource("1_uebix")
 region_enabled = true
 region_rect = Rect2(395, 2242, 41, 62)
+
+[node name="trunks2" type="Sprite2D" parent="select2"]
+position = Vector2(0, 1000)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("1_uebix")
+flip_h = true
+flip_v = true
+region_enabled = true
+region_rect = Rect2(394, 2565, 43, 62)
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1

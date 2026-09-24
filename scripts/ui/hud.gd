@@ -33,6 +33,8 @@ func mogged():
 	$mogged.visible = true
 	$mogged.scale = Vector2(5,5)
 	$mogged.modulate.a = 0
+	var moggedarray : Array = ["MOGGED","BRUTALIZED","DESTROYED","DIDDLED"]
+	$mogged/Label.text = moggedarray.pick_random()
 	
 	var tween = create_tween()
 	tween.tween_property($mogged,"scale",Vector2(1,1),0.8).set_trans(Tween.TRANS_CUBIC)
